@@ -1,0 +1,9 @@
+{
+  "name": "answer",
+  "version": "0.1.0",
+  "exec": "npx",
+  "args": ["--yes", "tsx", "index.ts"],
+  "language": "typescript",
+  "description": "Answer numbered agent questions from an interactive panel",
+  "enabled": true
+}
