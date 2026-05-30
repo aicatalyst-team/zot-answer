@@ -2,6 +2,8 @@
 
 TypeScript [zot](https://www.zot.sh) extension that opens `/answer` and lets you answer numbered questions from the last assistant message in an interactive panel.
 
+![Preview](assets/preview.png)
+
 ## Behavior
 
 - Watches `assistant_message` events and stores the latest assistant text.
