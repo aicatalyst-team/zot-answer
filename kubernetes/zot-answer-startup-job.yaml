@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: zot-answer-startup
+  namespace: poc-zot-answer
+  labels:
+    app: zot-answer
+    autopoc.io/project: zot-answer
+    autopoc.io/scenario: container-startup
+spec:
+  backoffLimit: 1
+  activeDeadlineSeconds: 60
+  template:
+    spec:
+      containers:
+        - name: zot-answer
+          image: quay.io/aicatalyst/zot-answer:latest
+          imagePullPolicy: Always
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              echo '{"type":"hello_ack"}' | timeout 10 npx tsx /opt/app-root/src/index.ts || true
+              echo "EXIT_CODE=$?"
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+      restartPolicy: Never
