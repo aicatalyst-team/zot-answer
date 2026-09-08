@@ -1,4 +1,10 @@
-# zot-answer
+> [!WARNING]
+> **This repository is archived.**
+>
+> Archived on 2026-09-08 by the AI Catalyst Platform Team.
+> It is read-only and no longer maintained.
+
+---# zot-answer
 
 TypeScript [zot](https://www.zot.sh) extension that opens `/answer` and lets you answer numbered questions from the last assistant message in an interactive panel.
 
